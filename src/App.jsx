@@ -7,7 +7,7 @@ import Approutes from "./routes/Approutes";
 import Cart from "./components/Cart";
 
 const App = () => {
-  const { currentUser, isLogin, setCurrentUser } = useContext(MyStore);
+  const { currentUser, isLogin } = useContext(MyStore);
   if (currentUser) {
     return (
       <div>

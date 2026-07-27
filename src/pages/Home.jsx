@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { MyStore } from "../context/MyContext";
+import React from "react";
 import ProductCard from "../components/ProductCard";
 import HeroSection from "../components/HeroSection";
 import StatsSection from "../components/StatsSection";
@@ -10,8 +9,6 @@ import Footer from "../components/Footer";
 import CategorySection from "../components/CategorySection";
 
 const Home = () => {
-  const { products } = useContext(MyStore);
-
   return (
     <div className="max-w-7xl mx-auto px-6 py-8 space-y-20">
       <HeroSection />

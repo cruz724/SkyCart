@@ -23,7 +23,8 @@ const Register = () => {
       return;
     }
 
-    const { confirmPass, ...user } = data;
+    const user = { ...data };
+    delete user.confirmPass;
 
     setUsers((prev) => [...prev, user]);
 

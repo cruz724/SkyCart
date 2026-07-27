@@ -61,16 +61,19 @@ export default function About() {
       </section>
 
       <section className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-10">
-        {stats.map(({ icon: Icon, value, label }) => (
-          <div
-            key={label}
-            className="border rounded-2xl p-6 bg-white hover:shadow-lg duration-300 text-center"
-          >
-            <Icon size={24} className="mx-auto mb-3 text-lime-500" />
-            <div className="text-3xl font-bold text-gray-900">{value}</div>
-            <div className="mt-1 text-sm text-gray-500 font-medium">{label}</div>
-          </div>
-        ))}
+        {stats.map(({ icon, value, label }) => {
+          const StatIcon = icon;
+          return (
+            <div
+              key={label}
+              className="border rounded-2xl p-6 bg-white hover:shadow-lg duration-300 text-center"
+            >
+              <StatIcon size={24} className="mx-auto mb-3 text-lime-500" />
+              <div className="text-3xl font-bold text-gray-900">{value}</div>
+              <div className="mt-1 text-sm text-gray-500 font-medium">{label}</div>
+            </div>
+          );
+        })}
       </section>
       <section className="mt-16 rounded-2xl border border-gray-200 bg-white p-8 sm:p-12 shadow-sm hover:shadow-md transition">
         <h2 className="mb-4 text-2xl font-bold text-gray-900">Our Story</h2>

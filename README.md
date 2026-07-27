@@ -19,8 +19,8 @@ SkyMart is a modern e-commerce web application built using React, Context API, R
 - Shop by Category
 - Top Rated Products
 - New Arrivals
-- Responsive Design
-- Modern Tailwind CSS UI
+- Fully Responsive Design (mobile drawer, hamburger navigation, responsive cart panel)
+- Modern Tailwind CSS UI with scaled headings and dynamic spacing
 
 ## 🛠 Tech Stack
 
@@ -98,10 +98,11 @@ The Context stores:
 
 ## 🎨 UI
 
-- Fully Responsive
-- Mobile Friendly
-- Modern Card Design
-- Smooth Hover Effects
+- Fully Responsive & Mobile Friendly
+- Slide-out Mobile Hamburger Menu Drawer with smooth transitions
+- Responsive Cart Drawer (full width on mobile, 450px on desktop)
+- Dynamic Welcome Headings with responsive scaling
+- Smooth Hover Effects & Modern Card Design
 - Minimal Dashboard Style
 
 ## ⚙️ Installation

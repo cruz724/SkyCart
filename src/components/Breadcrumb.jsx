@@ -3,14 +3,14 @@ import { Link } from "react-router";
 
 const Breadcrumb = ({ product }) => {
   return (
-    <div className="flex items-center gap-2 text-gray-500 text-sm">
-      <Link to="/" className="hover:text-lime-500">
+    <div className="flex flex-wrap items-center gap-2 text-gray-500 text-sm">
+      <Link to="/" className="hover:text-lime-500 transition">
         Home
       </Link>
 
       <span>/</span>
 
-      <Link to="/shop" className="hover:text-lime-500">
+      <Link to="/shop" className="hover:text-lime-500 transition">
         Products
       </Link>
 
@@ -20,7 +20,9 @@ const Breadcrumb = ({ product }) => {
 
       <span>/</span>
 
-      <span className="text-black font-medium truncate">{product.title}</span>
+      <span className="text-black font-medium max-w-[120px] sm:max-w-[250px] md:max-w-none inline-block truncate" title={product.title}>
+        {product.title}
+      </span>
     </div>
   );
 };

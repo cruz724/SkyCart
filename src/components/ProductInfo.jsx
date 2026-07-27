@@ -18,7 +18,7 @@ const ProductInfo = ({ product }) => {
 
       {/* Title */}
 
-      <h1 className="text-5xl font-bold mt-6 leading-tight">{product.title}</h1>
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-6 leading-tight">{product.title}</h1>
 
       {/* Rating */}
 
@@ -45,13 +45,13 @@ const ProductInfo = ({ product }) => {
 
       {/* Price */}
 
-      <h2 className="text-5xl font-bold text-lime-500">${product.price}</h2>
+      <h2 className="text-4xl sm:text-5xl font-bold text-lime-500">${product.price}</h2>
 
       <hr className="my-8" />
 
       {/* Description */}
 
-      <p className="text-gray-600 leading-8">{product.description}</p>
+      <p className="text-gray-600 leading-8 text-sm sm:text-base">{product.description}</p>
 
       {/* Buttons */}
 
@@ -59,7 +59,7 @@ const ProductInfo = ({ product }) => {
         {!cartItem ? (
           <button
             onClick={() => addToCart(product)}
-            className="flex-1 bg-lime-400 hover:bg-lime-500 text-black rounded-xl py-4 font-semibold flex justify-center items-center gap-2 transition"
+            className="flex-1 bg-lime-400 hover:bg-lime-500 text-black rounded-xl py-4 font-semibold flex justify-center items-center gap-2 transition cursor-pointer"
           >
             <ShoppingCart size={20} />
             Add To Cart
@@ -68,7 +68,7 @@ const ProductInfo = ({ product }) => {
           <div className="flex-1 flex items-center justify-between bg-lime-400 rounded-xl px-6 py-3">
             <button
               onClick={() => decreaseQuantity(product.id)}
-              className="text-2xl font-bold"
+              className="text-2xl font-bold cursor-pointer px-2"
             >
               -
             </button>
@@ -77,14 +77,14 @@ const ProductInfo = ({ product }) => {
 
             <button
               onClick={() => increaseQuantity(product.id)}
-              className="text-2xl font-bold"
+              className="text-2xl font-bold cursor-pointer px-2"
             >
               +
             </button>
           </div>
         )}
 
-        <button className="border rounded-xl px-5 hover:bg-gray-100 transition">
+        <button className="border rounded-xl px-5 hover:bg-gray-100 transition cursor-pointer">
           <Heart />
         </button>
       </div>
