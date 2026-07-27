@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { MyStore } from "../context/MyContext";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { setCurrentUser, cartProducts, setIsCartOpen } = useContext(MyStore);
@@ -48,6 +49,7 @@ const Navbar = () => {
         <button
           onClick={() => {
             setCurrentUser(null);
+            toast.success("Logged out successfully!");
           }}
           className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition"
         >

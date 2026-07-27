@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { MyStore } from "../context/MyContext";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 const Login = () => {
   let { setIsLogin, users, setCurrentUser } = useContext(MyStore);
 
@@ -16,11 +17,12 @@ const Login = () => {
     });
 
     if (!user) {
-      alert("Invalid email or password");
+      toast.error("Invalid Email or Password");
       return;
     }
 
     setCurrentUser(user);
+    toast.success("Login Successful!");
   };
 
   return (

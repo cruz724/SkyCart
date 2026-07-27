@@ -5,7 +5,6 @@ import { MyStore } from "./context/MyContext";
 import Navbar from "./components/Navbar";
 import Approutes from "./routes/Approutes";
 import Cart from "./components/Cart";
-import Toast from "./components/Toast";
 
 const App = () => {
   const { currentUser, isLogin, setCurrentUser } = useContext(MyStore);
@@ -14,7 +13,6 @@ const App = () => {
       <div>
         <Navbar />
         <Cart />
-        <Toast />
         <Approutes />
       </div>
     );

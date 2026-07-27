@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const MyStore = createContext();
 
@@ -7,7 +8,6 @@ export const ContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
-  const [toast, setToast] = useState(null);
 
   const [users, setUsers] = useState(() => {
     return JSON.parse(localStorage.getItem("users")) || [];
@@ -93,7 +93,7 @@ export const ContextProvider = ({ children }) => {
     });
 
     setIsCartOpen(true);
-    showToast(`added to cart`);
+    toast.success("Added to Cart!");
   };
 
   const removeFromCart = (id) => {
@@ -121,13 +121,7 @@ export const ContextProvider = ({ children }) => {
   const clearCart = () => {
     setCartProducts([]);
   };
-  const showToast = (message, type = "success") => {
-    setToast({ message, type });
 
-    setTimeout(() => {
-      setToast(null);
-    }, 2000);
-  };
   //Home
 
   const cartItems = cartProducts.reduce((sum, item) => sum + item.quantity, 0);
@@ -166,9 +160,6 @@ export const ContextProvider = ({ children }) => {
         clearCart,
         isCartOpen,
         setIsCartOpen,
-        toast,
-        setToast,
-        showToast,
         cartItems,
         cartValue,
         categories,

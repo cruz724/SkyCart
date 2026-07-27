@@ -7,14 +7,22 @@ const icons = {
   jewelery: "💍",
 };
 
-const CategoryCard = ({ category, count }) => {
+const CategoryCard = ({ category, count, onClick }) => {
   return (
-    <div className="bg-white border rounded-2xl p-8 hover:shadow-lg transition duration-300 cursor-pointer">
-      <div className="text-5xl">{icons[category] || "📦"}</div>
+    <div
+      onClick={onClick}
+      className="bg-white border border-gray-200/80 rounded-3xl p-8 hover:shadow-xl hover:border-black hover:-translate-y-1.5 transition duration-300 cursor-pointer group flex flex-col justify-between h-56"
+    >
+      <div className="text-3xl bg-gray-50 border border-gray-100 h-14 w-14 rounded-2xl flex items-center justify-center shrink-0 shadow-2xs group-hover:bg-black group-hover:text-white transition duration-300">
+        {icons[category] || "📦"}
+      </div>
 
-      <h2 className="text-2xl font-semibold mt-6 capitalize">{category}</h2>
-
-      <p className="text-gray-500 mt-2">{count} Products</p>
+      <div>
+        <h3 className="text-xl font-bold text-gray-950 capitalize group-hover:text-lime-600 transition">
+          {category}
+        </h3>
+        <p className="text-sm font-medium text-gray-400 mt-1">{count} Products</p>
+      </div>
     </div>
   );
 };

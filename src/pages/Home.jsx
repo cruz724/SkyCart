@@ -13,16 +13,17 @@ const Home = () => {
   const { products } = useContext(MyStore);
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-8">
+    <div className="max-w-7xl mx-auto px-6 py-8 space-y-20">
       <HeroSection />
 
       <StatsSection />
 
       <CategorySection />
 
-      <TopRatedSection />
-
-      <NewArrivalSection />
+      <div className="grid md:grid-cols-2 gap-10">
+        <TopRatedSection />
+        <NewArrivalSection />
+      </div>
 
       <FeaturesSection />
 

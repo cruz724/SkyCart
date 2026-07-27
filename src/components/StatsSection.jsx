@@ -39,19 +39,24 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+    <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       {stats.map((item, index) => (
         <div
           key={index}
-          className="border rounded-2xl p-6 bg-white hover:shadow-lg duration-300"
+          className="border border-gray-200/80 rounded-3xl p-6 bg-white hover:shadow-lg hover:-translate-y-1 transition duration-300 flex items-center gap-5"
         >
-          <p className="text-3xl">{item.icon}</p>
-
-          <h2 className="text-3xl font-bold mt-4">{item.value}</h2>
-
-          <p className="font-semibold mt-2">{item.title}</p>
-
-          <p className="text-gray-500 text-sm">{item.subtitle}</p>
+          <div className="text-3xl bg-gray-50 border border-gray-100 h-14 w-14 rounded-2xl flex items-center justify-center shrink-0 shadow-2xs">
+            {item.icon}
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+              {item.title}
+            </p>
+            <h3 className="text-2xl font-black text-gray-900 mt-0.5">
+              {item.value}
+            </h3>
+            <p className="text-xs text-gray-500 mt-0.5">{item.subtitle}</p>
+          </div>
         </div>
       ))}
     </section>

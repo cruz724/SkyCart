@@ -9,8 +9,7 @@ const CategorySection = () => {
   const { categories, products } = useContext(MyStore);
 
   return (
-    <section className="mt-16">
-      {/* Heading */}
+    <section className="w-full">
 
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-4xl font-bold">Shop by Category</h1>
@@ -23,8 +22,6 @@ const CategorySection = () => {
         </button>
       </div>
 
-      {/* Categories */}
-
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {categories.map((category) => (
           <CategoryCard
@@ -33,6 +30,7 @@ const CategorySection = () => {
             count={
               products.filter((product) => product.category === category).length
             }
+            onClick={() => navigate("/shop", { state: { category } })}
           />
         ))}
       </div>

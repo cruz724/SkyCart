@@ -9,22 +9,24 @@ const TopRated = () => {
   const { topRatedProducts } = useContext(MyStore);
 
   return (
-    <section className="mt-20">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Top Rated</h1>
+    <section className="bg-white border border-gray-200/85 rounded-3xl p-6 md:p-8 hover:shadow-lg transition duration-300 h-full flex flex-col justify-between">
+      <div>
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-gray-900">Top Rated</h2>
 
-        <button
-          onClick={() => navigate("/shop")}
-          className="text-lime-500 font-semibold"
-        >
-          See All →
-        </button>
-      </div>
+          <button
+            onClick={() => navigate("/shop")}
+            className="text-sm font-semibold text-lime-500 hover:text-lime-600 transition cursor-pointer"
+          >
+            See All →
+          </button>
+        </div>
 
-      <div className="grid lg:grid-cols-2 gap-6">
-        {topRatedProducts.map((product) => (
-          <MiniProductCard key={product.id} product={product} />
-        ))}
+        <div className="divide-y divide-gray-100">
+          {topRatedProducts.slice(0, 5).map((product) => (
+            <MiniProductCard key={product.id} product={product} />
+          ))}
+        </div>
       </div>
     </section>
   );

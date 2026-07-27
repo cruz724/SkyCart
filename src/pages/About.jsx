@@ -4,10 +4,10 @@ import {
   Users,
   Star,
   Truck,
-  ShoppingCart,
-  LogOut,
 } from "lucide-react";
 import React from "react";
+import { useNavigate } from "react-router";
+import Footer from "../components/Footer";
 
 const stats = [
   { icon: Package, value: "20K+", label: "Products" },
@@ -43,108 +43,99 @@ const team = [
 ];
 
 export default function About() {
-  return (
-    <div className="min-h-screen bg-black text-white">
-      <main className="mx-auto max-w-6xl px-6">
-        {/* Hero */}
-        <section className="py-24 text-center">
-          <span className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-lime-400">
-            <Zap size={26} className="text-black" fill="black" />
-          </span>
-          <h1 className="text-4xl font-bold sm:text-5xl">
-            About Sky<span className="text-lime-400">Mart</span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-white/50">
-            SkyMart is a next-generation e-commerce platform built to make
-            online shopping fast, fair, and enjoyable — for everyone.
-          </p>
-        </section>
+  const navigate = useNavigate();
 
-        {/* Stats */}
-        <section className="grid grid-cols-2 gap-4 pb-20 sm:grid-cols-4">
-          {stats.map(({ icon: Icon, value, label }) => (
+  return (
+    <div className="max-w-7xl mx-auto px-6 py-8">
+      <section className="border rounded-3xl p-12 bg-black text-white text-center">
+        <span className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-lime-400">
+          <Zap size={26} className="text-black" fill="black" />
+        </span>
+        <h1 className="text-4xl font-bold sm:text-5xl">
+          About Sky<span className="text-lime-400">Mart</span>
+        </h1>
+        <p className="mx-auto mt-4 max-w-xl text-gray-400 text-lg">
+          SkyMart is a next-generation e-commerce platform built to make
+          online shopping fast, fair, and enjoyable — for everyone.
+        </p>
+      </section>
+
+      <section className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-10">
+        {stats.map(({ icon: Icon, value, label }) => (
+          <div
+            key={label}
+            className="border rounded-2xl p-6 bg-white hover:shadow-lg duration-300 text-center"
+          >
+            <Icon size={24} className="mx-auto mb-3 text-lime-500" />
+            <div className="text-3xl font-bold text-gray-900">{value}</div>
+            <div className="mt-1 text-sm text-gray-500 font-medium">{label}</div>
+          </div>
+        ))}
+      </section>
+      <section className="mt-16 rounded-2xl border border-gray-200 bg-white p-8 sm:p-12 shadow-sm hover:shadow-md transition">
+        <h2 className="mb-4 text-2xl font-bold text-gray-900">Our Story</h2>
+        <p className="text-gray-600 leading-relaxed">
+          SkyMart started in 2022 as a small side project — two engineers
+          tired of bloated, slow e-commerce experiences. We asked ourselves:
+          what if shopping online was actually{" "}
+          <em className="text-gray-900 font-semibold not-italic">enjoyable</em>?
+        </p>
+        <p className="mt-4 text-gray-600 leading-relaxed">
+          Three years later, SkyMart serves over 50,000 customers across the
+          country. We stock electronics, fashion, jewelry, and everyday
+          essentials — all at prices that don't require a second mortgage.
+        </p>
+        <p className="mt-4 text-gray-600 leading-relaxed">
+          We're still the same team at heart: obsessed with speed,
+          transparency, and making you feel good about every purchase you make
+          here.
+        </p>
+      </section>
+
+      <section className="mt-16">
+        <h2 className="mb-6 text-2xl font-bold text-gray-900">What We Stand For</h2>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {values.map(({ title, desc }) => (
             <div
-              key={label}
-              className="rounded-xl border border-white/10 py-8 text-center"
+              key={title}
+              className="rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-md transition duration-300"
             >
-              <Icon size={20} className="mx-auto mb-3 text-lime-400" />
-              <div className="text-2xl font-bold">{value}</div>
-              <div className="mt-1 text-sm text-white/40">{label}</div>
+              <h3 className="mb-2 font-bold text-lime-600 text-lg">{title}</h3>
+              <p className="text-sm text-gray-600">{desc}</p>
             </div>
           ))}
-        </section>
+        </div>
+      </section>
 
-        {/* Story */}
-        <section className="mb-20 rounded-2xl border border-white/10 p-8 sm:p-12">
-          <h2 className="mb-4 text-2xl font-semibold">Our Story</h2>
-          <p className="text-white/50 leading-relaxed">
-            SkyMart started in 2022 as a small side project — two engineers
-            tired of bloated, slow e-commerce experiences. We asked ourselves:
-            what if shopping online was actually{" "}
-            <em className="text-white/70 not-italic">enjoyable</em>?
-          </p>
-          <p className="mt-4 text-white/50 leading-relaxed">
-            Three years later, SkyMart serves over 50,000 customers across the
-            country. We stock electronics, fashion, jewelry, and everyday
-            essentials — all at prices that don't require a second mortgage.
-          </p>
-          <p className="mt-4 text-white/50 leading-relaxed">
-            We're still the same team at heart: obsessed with speed,
-            transparency, and making you feel good about every purchase you make
-            here.
-          </p>
-        </section>
+      <section className="mt-16">
+        <h2 className="mb-6 text-2xl font-bold text-gray-900">Meet the Team</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          {team.map(({ initial, name, role }) => (
+            <div key={name} className="text-center border border-gray-200 bg-white p-6 rounded-2xl hover:shadow-md transition">
+              <span className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-900 text-lg font-semibold">
+                {initial}
+              </span>
+              <div className="font-bold text-gray-900">{name}</div>
+              <div className="text-sm text-gray-500">{role}</div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        {/* Values */}
-        <section className="mb-20">
-          <h2 className="mb-8 text-2xl font-semibold">What We Stand For</h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {values.map(({ title, desc }) => (
-              <div
-                key={title}
-                className="rounded-xl border border-white/10 p-6"
-              >
-                <h3 className="mb-2 font-semibold text-lime-400">{title}</h3>
-                <p className="text-sm text-white/50">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+      <section className="my-16 rounded-3xl border border-gray-200 bg-gray-50 py-16 text-center shadow-sm">
+        <h2 className="text-3xl font-bold text-gray-900">Ready to shop?</h2>
+        <p className="mt-2 text-gray-600">
+          Explore thousands of products at unbeatable prices.
+        </p>
+        <button
+          onClick={() => navigate("/shop")}
+          className="mt-6 inline-block rounded-xl bg-lime-400 px-8 py-3 text-sm font-semibold text-black hover:scale-105 duration-300 cursor-pointer"
+        >
+          Browse Products →
+        </button>
+      </section>
 
-        {/* Team */}
-        <section className="mb-20">
-          <h2 className="mb-8 text-2xl font-semibold">Meet the Team</h2>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {team.map(({ initial, name, role }) => (
-              <div key={name} className="text-center">
-                <span className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-white/5 text-lg font-semibold">
-                  {initial}
-                </span>
-                <div className="font-medium">{name}</div>
-                <div className="text-sm text-white/40">{role}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="mb-24 rounded-2xl border border-white/10 py-16 text-center">
-          <h2 className="text-2xl font-semibold">Ready to shop?</h2>
-          <p className="mt-2 text-white/50">
-            Explore thousands of products at unbeatable prices.
-          </p>
-          <a
-            href="/shop"
-            className="mt-6 inline-block rounded-full bg-lime-400 px-6 py-3 text-sm font-semibold text-black hover:bg-lime-300"
-          >
-            Browse Products
-          </a>
-        </section>
-      </main>
-
-      <footer className="border-t border-white/10 py-8 text-center text-sm text-white/30">
-        © 2025 SkyMart • Built with React
-      </footer>
+      <Footer />
     </div>
   );
 }

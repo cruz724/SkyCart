@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { MyStore } from "../context/MyContext";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const Register = () => {
   let { users, setIsLogin, setUsers } = useContext(MyStore);
@@ -18,7 +19,7 @@ const Register = () => {
     const exists = users.find((u) => u.email === data.email);
 
     if (exists) {
-      alert("Email already registered");
+      toast.error("Email already registered");
       return;
     }
 
@@ -26,7 +27,7 @@ const Register = () => {
 
     setUsers((prev) => [...prev, user]);
 
-    alert("Account Created");
+    toast.success("Registered Successfully!");
 
     reset();
 
